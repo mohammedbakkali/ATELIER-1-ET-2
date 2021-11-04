@@ -1,0 +1,188 @@
+# ATELIER 1 ///////////////////////////////
+#exercice1
+def fact(n):
+    if n==0: return 1
+    return n*fact(n-1)
+
+terme=int(input("donner le nombre de terme"))
+s=0
+for i in range(1,terme+1):
+    s=s+fact(i)/i
+print(s)    
+
+#exercice2 ///////////////////////////////////
+def binaire(b):
+    f=1
+    s=0
+    while(b!=0):
+        r=b%2
+        s+=r*f
+        f*=10
+        b//=2
+    return s
+print(binaire(8))    
+
+#exercice3 ///////////////////////////////////
+def sum(n):
+    if n ==0:return 0
+    return n+sum(n-1)
+terme=int(input("donner le nombre de terme n "))
+print(sum(terme))    
+
+#exercice4 ///////////////////////////////////
+def Fibonacci(n):
+    if n==1 or n==0 :return n
+    return Fibonacci(n-1)+Fibonacci(n-2)
+a=int(input("donner un terme "))    
+for i in range(a):
+    print(Fibonacci(i))
+
+#exercice5 ///////////////////////////////////
+def calcul(n):
+    if n==0:return 0
+    return 1+calcul(n//10)
+
+a=int(input("donne un nombre"))
+print(calcul(a))
+
+#exercice 6 ///////////////////////////////////
+#tri a bulle
+def tri_bulle(tableau):
+    permutation = True
+    c = 0
+    while permutation == True:
+        permutation = False
+        c = c + 1
+        for i in range(0, len(tableau) - c):
+            if tableau[i] > tableau[i + 1]:
+                permutation = True
+                tableau[i], tableau[i + 1] = tableau[i + 1],tableau[i]
+    return tableau
+
+from array import *
+t = array('i', [1,2,8,0,3,9,8])
+print(tri_bulle(t))
+
+#tri par selection 
+def tri_selection(T):
+    for i in range(0,len(T)-1):
+        MIN=T[i]    # le min est T[i] de indice i
+        iMIN=i
+        for j in range(i+1,len(T)):
+            if MIN>T[j]:
+                MIN=T[j]
+                iMIN=j
+        tmp=T[i]
+        T[i]=T[iMIN]
+        T[iMIN]=tmp
+
+#tri par insertion
+def tri_insertion(tab):
+    for i in range(1, len(tab)):
+        k = tab[i]
+        j = i-1
+        while j >= 0 and k < tab[j] :
+                tab[j + 1] = tab[j]
+                j -= 1
+        tab[j + 1] = k
+    return tab
+
+#exercice7 ///////////////////////////////////
+def inverse(a):
+    inv=" "
+    for i in a:
+        inv=i+inv
+    return inv
+str1="hello"
+c=inverse(str1)
+print(c) 
+
+
+#exercice8 ///////////////////////////////////
+def freq(chaine,x):
+    c=0
+    for i in chaine:
+        if i==x:
+            c=c+1
+    return c
+print(freq('simooo','o'))    
+#exercice9 ///////////////////////////////////
+#Python n'a pas de type intégré pour les matrices. Cependant, nous pouvons traiter une liste de liste comme une matrice.
+def position(T,x):
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            if x==M[i][j]:
+                pi=i
+                pj=j
+                return pi,pj
+        
+
+M = [ [3, 1, 5], [9, 8, -1], [10, 12, 2] ]
+x=int(input("cherche un élément : "))
+a=position(M,x)
+print("la position (i,j) de  ",x,"dans la matric est ",a)
+
+# ATELIER 2 //////////////////////////////           
+
+#exercice 1 / atelier 2  /////////////////////////
+l1=[1,5,4,6,8,12,16]   
+l2=[15,2,3,42,10,9,6]
+l3=[]
+for i in range(0,len(l1),2):
+    l3.append(l1[i])
+for i in range(1,len(l2),2):
+    l3.append(l2[i])
+print(l3)
+
+#exercice 2 / atelier 2  /////////////////////////
+liste=[2,9,8,5,12,45,7,20,13,45,16,14,5,96,52,20]
+l1=[]
+l2=[]
+l3=[]
+a=int(len(liste)/3)
+for i in range(a):
+    l1.append(liste[i])
+for i in range(a,a*2):
+    l2.append(liste[i])
+for i in range(a*2,(a*3)):
+    l3.append(liste[i])        
+l1.reverse()         
+print(l1)
+l2.reverse()
+print(l2)
+l3.reverse()
+print(l3)
+    #exercice 3 / atelier 2  /////////////////////////
+liste1=[2,5,6,3,3,6,9,8,5,1,2,20]
+my_dict = {}
+for i in range(len(liste1)):
+    c=0
+    for j in range(len(liste1)):
+        if liste1[i]==liste1[j]:
+            c=c+1
+    my_dict[liste1[i]] =c
+print(my_dict)   
+
+#exercice 4 / atelier 2  /////////////////////////
+my_set3={}
+my_set = {1, 8, 3, 4, 6,55,9} #create set
+print(my_set)
+my_set_1={6,8,25,3,59,1,9} #create set
+print(my_set_1)
+my_set3=my_set.intersection(my_set_1)
+print(my_set3)
+my_set=my_set.difference(my_set3)
+print(my_set)
+
+#exercice 5 / atelier 2  /////////////////////////
+liste1=[10,50,65,12,85,330,78]
+liste2=[]
+my_dict={'simo':65,'soulaiman':78,"abdo":12}   #"key":"values"
+for i in my_dict.values():              
+    for j in range(len(liste1)):
+        if i==liste1[j]:
+            liste2.append(liste1[j])
+print(liste2)  
+
+                                                           #fin 
+
